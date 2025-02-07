@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #444;
+    }
+
+    nav ul li {
+        margin-right: 1rem;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    main {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    form {
+        margin: 1rem 0;
+    }
+
+    form label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    form button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    form button:hover {
+        background-color: #444;
+    }
+
+    #catalog-section {
+        display: none;
+    }
+
+    #login-section,
+    #register-section {
+        display: none;
+    }
+
+    #logout {
+        display: none;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="catalog">Browse Catalog</a></li>
+            <li><a href="#" id="login">Login</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+            <li><a href="#" id="register">Register</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="catalog-section">
+            <h2>Book Catalog</h2>
+            <!-- Display a list of books -->
+            <ul id="book-list">
+                <li>Book 1</li>
+                <li>Book 2</li>
+                <li>Book 3</li>
+                <li>Book 4</li>
+                <li>Book 5</li>
+                <!-- Add more books here -->
+            </ul>
+        </div>
+        <div id="login-section">
+            <!-- Login form for admin, student, and faculty -->
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div id="register-section">
+            <!-- Registration form for new users -->
+            <h2>Registration</h2>
+            <form id="registration-form">
+                <label for="new-username">Username:</label>
+                <input type="text" id="new-username" name="new-username" required>
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" name="new-password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Library Management System</p>
+    </footer>
+    <script>document.addEventListener("DOMContentLoaded", () => {
+            const catalogLink = document.getElementById("catalog");
+            const loginLink = document.getElementById("login");
+            const logoutLink = document.getElementById("logout");
+            const registerLink = document.getElementById("register");
+            const catalogSection = document.getElementById("catalog-section");
+            const loginSection = document.getElementById("login-section");
+            const registerSection = document.getElementById("register-section");
+
+            catalogLink.addEventListener("click", () => {
+                catalogSection.style.display = "block";
+                loginSection.style.display = "none";
+                registerSection.style.display = "none";
+            });
+
+            loginLink.addEventListener("click", () => {
+                catalogSection.style.display = "none";
+                loginSection.style.display = "block";
+                registerSection.style.display = "none";
+            });
+
+            logoutLink.addEventListener("click", () => {
+                // Handle logout logic here
+                // You can clear the session or JWT token
+            });
+
+            registerLink.addEventListener("click", () => {
+                catalogSection.style.display = "none";
+                loginSection.style.display = "none";
+                registerSection.style.display = "block";
+            });
+
+            const loginForm = document.getElementById("login-form");
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                // Implement login logic here
+            });
+
+            const registrationForm = document.getElementById("registration-form");
+            registrationForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const newUsername = document.getElementById("new-username").value;
+                const newPassword = document.getElementById("new-password").value;
+                // Implement registration logic here
+            });
+        });
+    </script>
+
+</body>
+
+</html>
